@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        height: 30px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>URL Grenartor</h1>
+    <div>
+      <form action="/url" method="POST">
+        <label for="url">Enter Your URL :</label>
+        <input
+          type="text"
+          name="url"
+          placeholder="Enter url : www.exapmle.com"
+          id="url"
+        />
+        <button type="submit">Genrate</button>
+      </form>
+      <div>
+        <% if (locals.urls) { %>
+        <table>
+          <thead>
+            <th>SL.No</th>
+            <th>shortID</th>
+            <th>Original Url</th>
+            <th>Click's</th>
+          </thead>
+          <tbody>
+            <% urls.forEach((url,index) => { %>
+            <tr>
+              <th><%= index+1 %></th>
+              <th><%= url.shortID %></th>
+              <th><%= url.redirectURL %></th>
+              <th><%= url.visitHistory.length %></th>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
